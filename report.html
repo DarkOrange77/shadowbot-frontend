@@ -58,7 +58,7 @@
         const chatHistory = JSON.parse(localStorage.getItem('shadowbot_chat_history'));
 
         if (chatHistory && Array.isArray(chatHistory)) {
-            fetch('https://shadowbot-backend.onrender.com', {
+            fetch('https://shadowbot-backend.onrender.com/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

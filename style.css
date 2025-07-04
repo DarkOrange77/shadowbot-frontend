@@ -85,12 +85,12 @@ h1 {
 .user-msg,
 .bot-msg {
     display: inline-block;
+    word-wrap: break-word;
+    word-break: break-word;
     padding: 8px 12px;
     margin: 8px 0;
     max-width: 80%;
     line-height: 1.4;
-    word-break: break-word;
-    white-space: pre-wrap; /* move this here for both */
 }
 
 .user-msg {
@@ -98,8 +98,9 @@ h1 {
     color: #7fdbff;
     border-radius: 12px 12px 2px 12px;
     margin-left: auto;
-    text-align: left;
+    text-align: right;
     box-shadow: 0 0 8px #4e54c8;
+    align-self: flex-end;
 }
 
 .bot-msg {
@@ -109,8 +110,8 @@ h1 {
     margin-right: auto;
     text-align: left;
     box-shadow: 0 0 8px #7fdbff;
+    align-self: flex-start;
 }
-
 
 /* ==== INPUT AREA ==== */
 .input-area {

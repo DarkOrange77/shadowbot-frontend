@@ -94,23 +94,39 @@ h1 {
 }
 
 .user-msg {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-self: flex-end;
+    width: fit-content;
+    max-width: 80%;
     background: #222a4a;
     color: #7fdbff;
     border-radius: 12px 12px 2px 12px;
     margin-left: auto;
     text-align: right;
+    padding: 8px 12px;
+    margin: 8px 0;
+    line-height: 1.4;
     box-shadow: 0 0 8px #4e54c8;
-    align-self: flex-end;
 }
 
 .bot-msg {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-start;
+    width: fit-content;
+    max-width: 80%;
     background: #181c36;
     color: #fff;
     border-radius: 12px 12px 12px 2px;
     margin-right: auto;
     text-align: left;
+    padding: 8px 12px;
+    margin: 8px 0;
+    line-height: 1.4;
     box-shadow: 0 0 8px #7fdbff;
-    align-self: flex-start;
 }
 
 /* ==== INPUT AREA ==== */

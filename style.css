@@ -94,13 +94,19 @@ h1 {
 }
 
 .user-msg {
+    display: inline-block;
     background: #222a4a;
     color: #7fdbff;
+    padding: 8px 12px;
     border-radius: 12px 12px 2px 12px;
-    margin-left: auto;
+    margin: 8px 0 8px auto;
+    max-width: 80%;
+    width: fit-content;
     text-align: right;
     box-shadow: 0 0 8px #4e54c8;
     align-self: flex-end;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .bot-msg {

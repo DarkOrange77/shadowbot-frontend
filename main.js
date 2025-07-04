@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         appendMessage('user', message);
         messages.push({ role: "user", content: message });
         userInput.value = '';
-        fetch('https://shadowbot-backend.onrender.com/', {
+        fetch('https://shadowbot-backend.onrender.com/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ messages })
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to initiate the conversation
     function initiateConversation() {
-        fetch('https://shadowbot-backend.onrender.com/', {
+        fetch('https://shadowbot-backend.onrender.com/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ messages })
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const endChatBtn = document.getElementById('end-chat-btn');
     if (endChatBtn) {
         endChatBtn.addEventListener('click', () => {
-            fetch('https://shadowbot-backend.onrender.com/', {
+            fetch('https://shadowbot-backend.onrender.com/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ messages })

@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const endChatBtn = document.getElementById('end-chat-btn');
     if (endChatBtn) {
         endChatBtn.addEventListener('click', () => {
-            fetch('https://shadowbot-backend.onrender.com/chat', {
+            fetch('https://shadowbot-backend.onrender.com/analyze', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ messages })

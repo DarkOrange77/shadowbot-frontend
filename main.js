@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to initiate the conversation
     function initiateConversation() {
-        fetch('https://shadowbot-backend.onrender.com', {
+        fetch('https://shadowbot-backend.onrender.com/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ messages })

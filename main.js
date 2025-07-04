@@ -3,15 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInput = document.getElementById('user-input');
     const sendBtn = document.getElementById('send-btn');
 
-    // Start with the system prompt as the first message
-    let messages = [
+    let typingIndicator = null;
+
+    const messages = [
         {
             role: "system",
             content: "You are simulating a social engineering conversation for cybersecurity awareness training. Demonstrate common manipulation tactics (urgency, authority, flattery) in a safe, educational context. Do NOT ask for real credentials or personal information. Respond concisely unless the situation requires more detail. Vary your response length naturally, like a human would in chat. Do not repeat previous instructions or warnings. Avoid repeating questions or statements you have already made in this conversation. Stay in character as a suspicious tech support agent, but always keep the conversation safe for training."
         }
     ];
 
-    // Append a message to the chat window
+    // Append message bubble
     function appendMessage(sender, text) {
         const msgDiv = document.createElement('div');
         msgDiv.className = sender === 'user' ? 'user-msg' : 'bot-msg';
@@ -20,13 +21,33 @@ document.addEventListener('DOMContentLoaded', () => {
         chatWindow.scrollTop = chatWindow.scrollHeight;
     }
 
-    // Send a message to the backend
+    // Show typing indicator
+    function showTypingIndicator() {
+        typingIndicator = document.createElement('div');
+        typingIndicator.id = 'typing-indicator';
+        typingIndicator.textContent = 'ShadowBot is typing...';
+        chatWindow.appendChild(typingIndicator);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    // Remove typing indicator
+    function removeTypingIndicator() {
+        if (typingIndicator && typingIndicator.parentNode) {
+            typingIndicator.parentNode.removeChild(typingIndicator);
+        }
+    }
+
+    // Send message to backend
     function sendMessage() {
         const message = userInput.value.trim();
         if (!message) return;
+
         appendMessage('user', message);
         messages.push({ role: "user", content: message });
         userInput.value = '';
+
+        showTypingIndicator();
+
         fetch('https://shadowbot-backend.onrender.com/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -34,16 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(res => res.json())
         .then(data => {
+            removeTypingIndicator();
             appendMessage('bot', data.response);
             messages.push({ role: "assistant", content: data.response });
         })
         .catch(() => {
+            removeTypingIndicator();
             appendMessage('bot', "🚨 Connection error. Is the backend running?");
         });
     }
 
-    // Function to initiate the conversation
+    // Start initial bot message
     function initiateConversation() {
+        showTypingIndicator();
         fetch('https://shadowbot-backend.onrender.com/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -51,24 +75,23 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(res => res.json())
         .then(data => {
+            removeTypingIndicator();
             appendMessage('bot', data.response);
             messages.push({ role: "assistant", content: data.response });
         })
         .catch(() => {
+            removeTypingIndicator();
             appendMessage('bot', "🚨 Connection error. Is the backend running?");
         });
     }
 
-    // Call the initiateConversation function after the page loads
-    initiateConversation();
-
-    // Event listeners for sending messages
+    // Event listeners
     sendBtn.addEventListener('click', sendMessage);
     userInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') sendMessage();
     });
 
-    // End Chat button logic
+    // End chat and generate report
     const endChatBtn = document.getElementById('end-chat-btn');
     if (endChatBtn) {
         endChatBtn.addEventListener('click', () => {
@@ -79,10 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(res => res.json())
             .then(report => {
-                // Save the report and chat history to localStorage
                 localStorage.setItem('shadowbot_report', JSON.stringify(report));
                 localStorage.setItem('shadowbot_chat_history', JSON.stringify(messages));
-                // Redirect to the report page
                 window.location.href = 'report.html';
             })
             .catch(error => {
@@ -91,4 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    initiateConversation(); // Load first message
 });

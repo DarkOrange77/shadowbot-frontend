@@ -1,3 +1,4 @@
+
 /* ==== GLOBAL RESET & SPACE BACKGROUND ==== */
 body {
     margin: 0;
@@ -81,52 +82,44 @@ h1 {
     scroll-behavior: smooth;
 }
 
-/* ==== MESSAGES ==== */
+/* ==== MESSAGES (WHATSAPP-STYLE) ==== */
 .user-msg,
 .bot-msg {
-    display: inline-block;
-    word-wrap: break-word;
-    word-break: break-word;
-    padding: 8px 12px;
+    display: flex;
+    width: 100%;
     margin: 8px 0;
-    max-width: 80%;
-    line-height: 1.4;
 }
 
-.user-msg {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-end;
-    align-self: flex-end;
-    width: fit-content;
-    max-width: 80%;
+/* USER message bubble */
+.user-msg span {
     background: #222a4a;
     color: #7fdbff;
     border-radius: 12px 12px 2px 12px;
-    margin-left: auto;
-    text-align: right;
     padding: 8px 12px;
-    margin: 8px 0;
+    max-width: 80%;
+    width: fit-content;
+    text-align: left;
     line-height: 1.4;
     box-shadow: 0 0 8px #4e54c8;
+    word-wrap: break-word;
+    word-break: break-word;
+    margin-left: auto;
 }
 
-.bot-msg {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    align-self: flex-start;
-    width: fit-content;
-    max-width: 80%;
+/* BOT message bubble */
+.bot-msg span {
     background: #181c36;
     color: #fff;
     border-radius: 12px 12px 12px 2px;
-    margin-right: auto;
-    text-align: left;
     padding: 8px 12px;
-    margin: 8px 0;
+    max-width: 80%;
+    width: fit-content;
+    text-align: left;
     line-height: 1.4;
     box-shadow: 0 0 8px #7fdbff;
+    word-wrap: break-word;
+    word-break: break-word;
+    margin-right: auto;
 }
 
 /* ==== INPUT AREA ==== */
@@ -158,22 +151,6 @@ h1 {
 
 #send-btn:hover {
     background: linear-gradient(90deg, #8f94fb, #4e54c8);
-}
-
-/* ==== TYPING INDICATOR ==== */
-#typing-indicator {
-    font-style: italic;
-    font-size: 0.95em;
-    color: #7fdbff;
-    padding: 4px 8px;
-    margin: 4px 0;
-    text-align: left;
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 0.4; }
 }
 
 /* ==== END CHAT BUTTON ==== */

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <title>ShadowBot - Space Debrief</title>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -58,7 +59,7 @@
         const chatHistory = JSON.parse(localStorage.getItem('shadowbot_chat_history'));
 
         if (chatHistory && Array.isArray(chatHistory)) {
-            fetch('https://shadowbot-backend.onrender.com/chat', {
+            fetch('https://shadowbot-backend.onrender.com/analyze', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

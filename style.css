@@ -116,10 +116,12 @@ h1 {
     border-radius: 8px 8px 2px 8px;
     margin: 8px 0 8px auto;
     max-width: 80%;
+    min-width: 10px;         /* Optional: minimum width */
+    width: fit-content;      /* <-- Add this line */
     text-align: right;
     box-shadow: 0 0 8px #4e54c8;
+    word-break: break-word;  /* Ensures long words wrap */
 }
-
 .bot-msg {
     background: #181c36;
     color: #fff;

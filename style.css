@@ -166,11 +166,10 @@ h1 {
 }
 
 /* === MOBILE OPTIMIZED STYLES BELOW === */
-
 @media (max-width: 600px) {
     html, body {
         height: 100%;
-        min-height: 100vh;
+        min-height: 100dvh;
         margin: 0;
         padding: 0;
         width: 100vw;
@@ -178,20 +177,13 @@ h1 {
     }
 
     body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        height: 100dvh;
         background: #0a0a23;
     }
 
     .chat-container {
-        flex: 1 1 auto;
         width: 100vw;
         height: 100dvh;
-        min-height: 0;
-        max-width: 100vw;
-        min-width: 0;
+        min-height: 100dvh;
         margin: 0;
         padding: 0;
         border-radius: 0;
@@ -199,12 +191,12 @@ h1 {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        align-items: stretch;
+        max-width: none;
     }
 
     .chat-window {
         flex-grow: 1;
-        height: auto;
-        max-height: none;
         overflow-y: auto;
         padding: 12px 8px;
         font-size: 0.95em;
@@ -215,32 +207,10 @@ h1 {
         margin-top: auto;
     }
 
-    #user-input {
-        font-size: 1em;
-        padding: 12px 16px;
-    }
-
-    #send-btn {
-        padding: 12px 20px;
-        font-size: 1em;
-    }
-
-    .user-msg, .bot-msg {
-        margin: 16px 0;
-        padding: 12px 16px;
-        max-width: 90vw;
-        width: fit-content;
-        font-size: 0.95em;
-        min-width: 48px;
-        border-radius: 14px;
-    }
-
-    h1 {
-        font-size: 1.2em;
-    }
-
     #end-chat-btn {
         width: 100%;
         font-size: 1em;
+        margin: 0;
+        border-radius: 0 0 8px 8px;
     }
 }

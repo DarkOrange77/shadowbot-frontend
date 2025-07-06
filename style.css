@@ -249,16 +249,3 @@ h1 {
     }
 }
 
-@media (min-width: 601px) and (max-width: 1200px) {
-    .chat-container {
-        width: 80vw;
-        max-width: 700px;
-        min-width: 300px;
-        margin: 40px auto;
-        padding: 20px 24px 16px 24px;
-    }
-    .chat-window {
-        height: 32vh;
-        max-height: 320px;
-    }
-}

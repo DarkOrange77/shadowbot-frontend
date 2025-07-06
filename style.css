@@ -169,64 +169,66 @@ h1 {
 
 @media (max-width: 600px) {
 
-    /* Fullscreen mobile chat layout */
-   .chat-container {
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .chat-container {
         width: 100vw !important;
         height: 100vh !important;
         max-width: 100vw !important;
         min-width: 0 !important;
         margin: 0 !important;
-        padding: 0 0 12px 0;
+        padding: 0 0 12px 0 !important;
         border-radius: 0 !important;
         box-shadow: none !important;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
     }
 
     .chat-window {
-        flex-grow: 1;
-        height: auto;
-        max-height: none;
-        overflow-y: auto;
-        padding: 12px 8px;
-        font-size: 0.95em;
-        margin-bottom: 8px;
+        flex-grow: 1 !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow-y: auto !important;
+        padding: 12px 8px !important;
+        font-size: 0.95em !important;
+        margin-bottom: 8px !important;
     }
 
     .input-area {
-        margin-top: auto;
+        margin-top: auto !important;
     }
 
-    /* Increase input area size */
     #user-input {
-        font-size: 1em;
-        padding: 12px 16px;
+        font-size: 1em !important;
+        padding: 12px 16px !important;
     }
 
     #send-btn {
-        padding: 12px 20px;
-        font-size: 1em;
+        padding: 12px 20px !important;
+        font-size: 1em !important;
     }
 
-    /* Improve message spacing and readability */
     .user-msg, .bot-msg {
         margin: 16px 0 !important;
-        padding: 12px 16px;
-        max-width: 90vw;
-        width:fit-content;
-        font-size: 0.95em;
-        min-width:48px;
-        border-radius: 14px;
+        padding: 12px 16px !important;
+        max-width: 90vw !important;
+        width: fit-content !important;
+        font-size: 0.95em !important;
+        min-width: 48px !important;
+        border-radius: 14px !important;
     }
 
     h1 {
-        font-size: 1.2em;
+        font-size: 1.2em !important;
     }
 
     #end-chat-btn {
-        width: 100%;
-        font-size: 1em;
+        width: 100% !important;
+        font-size: 1em !important;
     }
 }
 

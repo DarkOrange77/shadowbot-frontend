@@ -1,16 +1,11 @@
-/* ===== FULLY OPTIMIZED RESPONSIVE CHAT UI ===== */
-
 /* Space background with animated stars */
 body {
     margin: 0;
     padding: 0;
-    height: 100dvh;
+    min-height: 100vh;
     background: #0a0a23;
     overflow-x: hidden;
     font-family: 'Orbitron', Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .stars {
@@ -20,7 +15,7 @@ body {
     z-index: -1;
     top: 0;
     left: 0;
-    background: transparent;
+    background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/img/stars.png') repeat top center;
     animation: moveStars 60s linear infinite;
     opacity: 0.5;
     pointer-events: none;
@@ -44,155 +39,116 @@ body {
     to { background-position: 1000px 1000px; }
 }
 
-/* Chat container now flex + sticky input */
+/* Responsive, fluid chat container */
 .chat-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-    height: 100dvh;
-    width: 100vw;
-    max-width: 600px;
+    position: relative;
+    z-index: 1;
+    width: 90vw;
+    max-width: 500px;
+    min-width: 260px;
+    margin: 6vh auto 0 auto;
     background: rgba(20, 24, 48, 0.95);
-    border-radius: 0;
-    box-shadow: 0 0 32px rgba(26, 26, 64, 0.8);
-    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 0 32px #1a1a40;
+    padding: 2.5vw 2vw 2vw 2vw;
     color: #fff;
     border: 2px solid #4e54c8;
-    backdrop-filter: blur(10px);
-    z-index: 1;
-    overflow: hidden;
-    box-sizing: border-box;
-    position: relative;
+    transition: max-width 0.3s, padding 0.3s, width 0.3s;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     font-family: 'Orbitron', Arial, sans-serif;
     letter-spacing: 2px;
     color: #7fdbff;
-    font-size: 1.6em;
-    font-weight: 700;
-    text-shadow: 0 0 10px rgba(127, 219, 255, 0.5);
+    font-size: 2em;
 }
 
 .chat-window {
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    min-height: 160px;
+    max-height: 400px;
     overflow-y: auto;
-    background: rgba(10, 14, 40, 0.9);
+    background: rgba(10, 14, 40, 0.8);
     border-radius: 8px;
     padding: 12px;
     margin-bottom: 12px;
     border: 1px solid #222a4a;
-    box-shadow: inset 0 0 8px rgba(34, 42, 74, 0.5);
+    box-shadow: 0 0 8px #222a4a;
     font-size: 1em;
-}
-
-.chat-window::-webkit-scrollbar {
-    width: 6px;
-}
-.chat-window::-webkit-scrollbar-track {
-    background: rgba(34, 42, 74, 0.3);
-    border-radius: 3px;
-}
-.chat-window::-webkit-scrollbar-thumb {
-    background: #4e54c8;
-    border-radius: 3px;
 }
 
 .input-area {
     display: flex;
     gap: 8px;
-    flex-wrap: nowrap;
-    margin-bottom: 8px;
 }
 
 #user-input {
     flex: 1;
-    padding: 12px;
+    padding: 8px;
     border-radius: 6px;
     border: 1px solid #4e54c8;
-    background: rgba(24, 28, 54, 0.9);
+    background: #181c36;
     color: #fff;
     font-size: 1em;
-    font-family: 'Orbitron', Arial, sans-serif;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-#user-input:focus {
-    outline: none;
-    border-color: #7fdbff;
-    box-shadow: 0 0 8px rgba(127, 219, 255, 0.3);
 }
 
 #send-btn {
-    padding: 12px 16px;
+    padding: 8px 16px;
     border-radius: 6px;
     border: none;
     background: linear-gradient(90deg, #4e54c8, #8f94fb);
     color: #fff;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    font-family: 'Orbitron', Arial, sans-serif;
-    box-shadow: 0 2px 8px rgba(78, 84, 200, 0.3);
-    white-space: nowrap;
+    transition: background 0.3s;
 }
 
 #send-btn:hover {
     background: linear-gradient(90deg, #8f94fb, #4e54c8);
-    transform: translateY(-1px);
 }
 
 .user-msg, .bot-msg {
     display: block;
     width: fit-content;
-    max-width: 85%;
-    font-size: 0.95em;
+    min-width: 10px;
+    max-width: 100%;
+    font-size: 1em;
     box-sizing: border-box;
     line-height: 1.5;
-    padding: 12px 16px;
+    padding: 10px 16px;
+    box-shadow: 0 2px 12px #222a4a33;
+    border: 1px solid #2a2f4a;
     margin: 12px 0;
-    transition: filter 0.2s, transform 0.2s;
-    word-wrap: break-word;
-    animation: fadeIn 0.3s ease-in;
+    transition: filter 0.2s;
 }
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 .user-msg {
-    background: linear-gradient(135deg, #222a4a, #2a3458);
+    background: #222a4a;
     color: #7fdbff;
     border-radius: 16px 16px 4px 16px;
     margin-left: auto;
     text-align: right;
     align-self: flex-end;
-    box-shadow: 0 0 8px rgba(78, 84, 200, 0.3);
-    border: 1px solid #4e54c8;
+    box-shadow: 0 0 8px #4e54c8;
 }
-
 .bot-msg {
-    background: linear-gradient(135deg, #181c36, #1f2442);
+    background: #181c36;
     color: #fff;
     border-radius: 16px 16px 16px 4px;
     margin-right: auto;
     text-align: left;
     align-self: flex-start;
-    box-shadow: 0 0 8px rgba(127, 219, 255, 0.3);
-    border: 1px solid #7fdbff;
+    box-shadow:0 0 8px #7fdbff;
 }
-
 .user-msg:hover, .bot-msg:hover {
-    filter: brightness(1.1);
-    transform: translateY(-1px);
+    filter: brightness(1.1) drop-shadow(0 0 8px #7fdbff44);
 }
-
+/* End Chat button styling */
 #end-chat-btn {
-    padding: 12px;
+    padding: 10px 24px;
     border-radius: 8px;
     border: none;
     background: linear-gradient(90deg, #4e54c8, #8f94fb);
@@ -200,21 +156,16 @@ h1 {
     font-weight: bold;
     font-size: 1em;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(26, 26, 64, 0.5);
+    box-shadow: 0 2px 8px #1a1a40;
+    margin-top: 8px;
     transition: background 0.3s, transform 0.2s;
-    font-family: 'Orbitron', Arial, sans-serif;
-    width: 100%;
-    text-align: center;
-    display: block;
-    margin: 6px auto 0 auto;
 }
-
 #end-chat-btn:hover {
     background: linear-gradient(90deg, #8f94fb, #4e54c8);
     transform: translateY(-2px) scale(1.03);
 }
 
-/* Better scaling for ultra small screens */
+/* === MOBILE OPTIMIZED STYLES BELOW === */
 @media (max-width: 600px) {
     html, body {
         height: 100%;
@@ -230,7 +181,7 @@ h1 {
         height: 100dvh;
         min-height: 100dvh;
         margin: 0;
-        padding: 16px 12px;
+        padding: 0;
         border-radius: 0;
         box-shadow: none;
         display: flex;
@@ -240,70 +191,22 @@ h1 {
         max-width: none;
     }
 
-    h1 {
-        font-size: 1.5em;
-        margin-bottom: 12px;
-    }
-
     .chat-window {
         flex-grow: 1;
         overflow-y: auto;
         padding: 12px 8px;
-        font-size: 0.9em;
+        font-size: 0.95em;
         margin-bottom: 8px;
-        height: auto;
-        min-height: 200px;
-    }
-
-    .user-msg, .bot-msg {
-        max-width: 90%;
-        font-size: 0.9em;
-        padding: 10px 14px;
     }
 
     .input-area {
         margin-top: auto;
-        gap: 6px;
-    }
-
-    #user-input {
-        padding: 10px;
-        font-size: 0.9em;
-    }
-
-    #send-btn {
-        padding: 10px 14px;
-        font-size: 0.9em;
     }
 
     #end-chat-btn {
         width: 100%;
-        font-size: 0.9em;
-        margin-top: 8px;
-        border-radius: 8px;
-        position: relative;
-        left: 0;
-        bottom: 0;
-        display: block;
+        font-size: 1em;
+        margin: 0;
+        border-radius: 0 0 8px 8px;
     }
 }
-
-@media (max-width: 360px) {
-    .chat-container {
-        padding: 12px 8px;
-    }
-
-    h1 {
-        font-size: 1.3em;
-    }
-
-    .user-msg, .bot-msg {
-        font-size: 0.85em;
-        padding: 8px 12px;
-    }
-
-    #user-input, #send-btn, #end-chat-btn {
-        font-size: 0.85em;
-    }
-}
-

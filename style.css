@@ -207,92 +207,96 @@
             transform: translateY(-2px) scale(1.03);
         }
 
-        /* === MOBILE OPTIMIZED STYLES BELOW === */
-        @media (max-width: 600px) {
-            html, body {
-                height: 100%;
-                min-height: 100dvh;
-                margin: 0;
-                padding: 0;
-                width: 100vw;
-                overflow-x: hidden;
-            }
+      /* Better scaling for ultra small screens */
+@media (max-width: 600px) {
+    html, body {
+        height: 100%;
+        min-height: 100dvh;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        overflow-x: hidden;
+    }
 
-            .chat-container {
-                width: 100vw;
-                height: 100dvh;
-                min-height: 100dvh;
-                margin: 0;
-                padding: 16px 12px;
-                border-radius: 0;
-                box-shadow: none;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: stretch;
-                max-width: none;
-            }
+    .chat-container {
+        width: 100vw;
+        height: 100dvh;
+        min-height: 100dvh;
+        margin: 0;
+        padding: 16px 12px;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+        max-width: none;
+    }
 
-            h1 {
-                font-size: 1.5em;
-                margin-bottom: 12px;
-            }
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 12px;
+    }
 
-            .chat-window {
-                flex-grow: 1;
-                overflow-y: auto;
-                padding: 12px 8px;
-                font-size: 0.9em;
-                margin-bottom: 8px;
-                height: auto;
-                min-height: 200px;
-            }
+    .chat-window {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 12px 8px;
+        font-size: 0.9em;
+        margin-bottom: 8px;
+        height: auto;
+        min-height: 200px;
+    }
 
-            .user-msg, .bot-msg {
-                max-width: 90%;
-                font-size: 0.9em;
-                padding: 10px 14px;
-            }
+    .user-msg, .bot-msg {
+        max-width: 90%;
+        font-size: 0.9em;
+        padding: 10px 14px;
+    }
 
-            .input-area {
-                margin-top: auto;
-                gap: 6px;
-            }
+    .input-area {
+        margin-top: auto;
+        gap: 6px;
+    }
 
-            #user-input {
-                padding: 10px;
-                font-size: 0.9em;
-            }
+    #user-input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
 
-            #send-btn {
-                padding: 10px 14px;
-                font-size: 0.9em;
-            }
+    #send-btn {
+        padding: 10px 14px;
+        font-size: 0.9em;
+    }
 
-            #end-chat-btn {
-                width: 100%;
-                font-size: 0.9em;
-                margin: 8px 0 0 0;
-                border-radius: 8px;
-            }
-        }
+    #end-chat-btn {
+        width: 100%;
+        font-size: 0.9em;
+        margin-top: 8px;
+        border-radius: 8px;
+        position: relative;
+        left: 0;
+        bottom: 0;
+        display: block;
+    }
+}
 
-        /* Extra small screens */
-        @media (max-width: 360px) {
-            .chat-container {
-                padding: 12px 8px;
-            }
+@media (max-width: 360px) {
+    .chat-container {
+        padding: 12px 8px;
+    }
 
-            h1 {
-                font-size: 1.3em;
-            }
+    h1 {
+        font-size: 1.3em;
+    }
 
-            .user-msg, .bot-msg {
-                font-size: 0.85em;
-                padding: 8px 12px;
-            }
+    .user-msg, .bot-msg {
+        font-size: 0.85em;
+        padding: 8px 12px;
+    }
 
-            #user-input, #send-btn {
-                font-size: 0.85em;
-            }
-        }
+    #user-input, #send-btn, #end-chat-btn {
+        font-size: 0.85em;
+    }
+}
+
